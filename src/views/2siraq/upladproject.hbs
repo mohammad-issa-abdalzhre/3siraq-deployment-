@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+
+    <form id="fileUploadForm" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <input type="text" name="name" placeholder="Name">
+        <input type="text" name="description" placeholder="Description">
+         <input type="text" name="idca" placeholder="idca">
+        <button type="submit">Upload</button>
+    </form>
+
+    <script>
+        document.getElementById("fileUploadForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            formData.append("file", e.target.file.files[0]);
+            formData.append("name", e.target.name.value);
+            formData.append("description", e.target.description.value);
+            formData.append("dica", e.target.idca.value);
+            console.log(formData)
+            try {
+                const response = await fetch("/home/fil", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    console.log("File uploaded successfully.");
+                } else {
+                    console.error("File upload failed.");
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+            }
+        });
+    </script>
+</body>
+</html>

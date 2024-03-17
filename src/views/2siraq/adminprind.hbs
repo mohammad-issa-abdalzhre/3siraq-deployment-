@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload Form</title>
+</head>
+<body>
+    <h1>File Upload</h1>
+    <form id="fileUploadForm" enctype="multipart/form-data">
+        <input type="file" name="file">
+        <button type="submit">Upload File</button>
+    </form>
+
+    <div id="uploadStatus"></div>
+
+    <script>
+        document.getElementById("fileUploadForm").addEventListener("submit", async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData();
+            const fileInput = document.querySelector('input[type="file"]');
+            formData.append("file", fileInput.files[0]);
+
+            try {
+                const response = await fetch("/home/prind", {
+                    method: "POST",
+                    body: formData,
+                });
+
+                if (response.ok) {
+                    document.getElementById("uploadStatus").textContent = "File uploaded successfully.";
+                } else {
+                    document.getElementById("uploadStatus").textContent = "File upload failed.";
+                }
+            } catch (error) {
+                console.error("An error occurred:", error);
+                document.getElementById("uploadStatus").textContent = "An error occurred.";
+            }
+        });
+    </script>
+</body>
+</html>

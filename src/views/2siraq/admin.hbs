@@ -1,0 +1,81 @@
+<!-- File Upload Form -->
+<form id="fileUploadForm" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <input type="text" name="name">
+    <input type="text" name="description">
+    <input type="text" name="path">
+    <button type="submit">Upload</button>
+</form>
+
+<!-- Deletion Form -->
+<form id="deleteForm">
+    <h1>Select a Product</h1>
+    <label for="products">Choose a product:</label>
+   
+    <select id="products" name="product" multiple>
+        {{#each imageUrls}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select>
+
+    <button type="button" onclick="deleteSelectedProducts()">Delete Selected Products</button>
+</form>
+
+<script>
+    console.log("fd");
+
+    // File Upload Form Submission
+    document.getElementById("fileUploadForm").addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData();
+        formData.append("file", e.target.file.files[0]);
+        formData.append("name", e.target.name.value);
+        formData.append("description", e.target.description.value);
+        formData.append("path", e.target.path.value);
+        console.log("File Upload FormData:");
+        console.log(formData);
+
+        try {
+            const response = await fetch("/home/file", {
+                method: "POST",
+                body: formData,
+            });
+
+            if (response.ok) {
+                console.log("File uploaded successfully.");
+            } else {
+                console.error("File upload failed.");
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
+    });
+
+    async  function deleteSelectedProducts() {
+         const selectElement = document.getElementById('products');
+        const selectedOptions = Array.from(selectElement.selectedOptions);
+        const selectedValues = selectedOptions.map(option => option.value);
+
+        // Log the selected values
+        console.log('Selected Product IDs:', selectedValues);
+
+        if (selectedValues.length === 0) {
+            console.warn('No products selected for deletion.');
+            return;
+        }
+  try {
+            const response = await fetch(`/home/delete/${selectedValues}`, {
+                method: "DELETE",
+            });
+
+            if (response.ok) {
+                console.log(`Resource with name ${selectedValues} deleted successfully.`);
+            } else {
+                console.error(`Deletion failed for resource with name ${selectedValues}.`);
+            }
+        } catch (error) {
+            console.error("An error occurred:", error);
+        }
+    };
+</script>

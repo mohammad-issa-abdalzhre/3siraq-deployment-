@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+  <!-- Basic -->
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <!-- Mobile Metas -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <!-- Site Metas -->
+  <meta name="keywords" content="" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+
+  <title>3SIRAQ</title>
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
+
+  <!-- Fonts style -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- Owl Carousel stylesheet -->
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+
+  <!-- Font Awesome style -->
+  <link href="/css/font-awesome.min.css" rel="stylesheet" />
+
+  <!-- Custom styles for this template -->
+  <link href="/css/style.css" rel="stylesheet" />
+  <!-- Responsive style -->
+  <link href="/css/responsive.css" rel="stylesheet" />
+
+  <!-- JavaScript for authorization check -->
+  <script>
+    // Function to check authorization before accessing a page
+    function checkAuthorization() {
+      const token = localStorage.getItem('jwtToken');
+      if (!token) {
+        // Redirect to the login page or show an unauthorized message
+        window.location.href = '/login'; // Redirect to login page
+        // Alternatively, you can display an error message to the user
+        // document.getElementById('error-message').innerText = 'Unauthorized access';
+      } else {
+        // Token exists, you can perform additional checks or actions here
+        // For example, you can log the token to the console
+        console.log('JWT Token:', token);
+        // Or you can make an AJAX request to validate the token on the server
+        // Example:
+        // fetch('/validateToken', {
+        //   method: 'POST',
+        //   headers: {
+        //     'Authorization': `Bearer ${token}`
+        //   }
+        // }).then(response => {
+        //   if (response.ok) {
+        //     // Token is valid, proceed with rendering the page
+        //   } else {
+        //     // Token is invalid, handle the error
+        //   }
+        // }).catch(error => {
+        //   console.error('Error validating token:', error);
+        // });
+      }
+    }
+
+    window.onload = checkAuthorization;
+  </script>
+</head>
+
+<body class="sub_page">
+
+  <div class="hero_area">
+    <!-- Header section starts -->
+    <header class="header_section">
+      <div class="header_top">
+        <div class="container-fluid header_top_container">
+          <div class="lang_box dropdown">
+            <a href="#" title="Language" class="nav-link" data-toggle="dropdown" aria-expanded="true">
+              <img src="/images/iraq.png" alt="iraq" class=" " title="United Kingdom"> <i class="fa fa-angle-down " aria-hidden="true"></i>
+            </a>
+            <div class="dropdown-menu ">
+              <a href="#" class="dropdown-item">
+                <img src="/images/iraq.png" class="" alt="iraq">
+              </a>
+            </div>
+            <span>
+              English
+            </span>
+          </div>
+          <div class="contact_nav">
+            <a href="tel:+964 7703962300">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <span>
+                Call : 07703962300
+              </span>
+            </a>
+            <a href="mailto:info@3siraq.com">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span>
+                Email : info@3siraq.com
+              </span>
+            </a>
+            <a href="https://www.google.com/maps/place/%D8%A7%D9%84%D9%85%D8%B3%D8%A7%D8%B1+%D9%85%D9%88%D9%84+%D9%84%D9%84%D8%A7%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A7%D8%AA%E2%80%AD/@33.3080185,44.4670946,15z/data=!3m1!4b1!4m6!3m5!1s0x1557814aa052399f:0x280ca55c2f586963!8m2!3d33.3080019!4d44.4486406!16s%2Fg%2F11fpn04v32?entry=ttu">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <span>
+                Location
+              </span>
+            </a>
+          </div>
+          <div class="social_box">
+            <a href="https://www.facebook.com/SmartSecuirtySystems.3SIRAQ?mibextid=LQQJ4d">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="https://twitter.com/3SIRAQ">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/smart-security-systems-3s-iraq/">
+              <i class="fa fa-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.instagram.com/3siraq/?igshid=MzRlODBiNWFlZA%3D%3D">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="header_bottom">
+        <div class="container-fluid">
+          <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="1">
+              <img src="/images/logo.png" alt="">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class=""> </span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav  ">
+                <li class="nav-item ">
+                  <a class="nav-link" href="4"> اضافه المدونة<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="6">اضافه ماركه</a>
+                </li>
+
+                <li class="nav-item ">
+                  <a class="nav-link" href="10">اضافه عملاء</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="13"> اضافه منتج</a>
+                </li>
+                <li class="nav-item ">
+                  <a class="nav-link" href="1"> الرئيسية</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
+    <!-- end header section -->
+  </div>
+
+  <!-- Your remaining HTML content -->
+
+</body>
+
+</html>
